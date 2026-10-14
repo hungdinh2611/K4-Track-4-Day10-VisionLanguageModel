@@ -20,7 +20,7 @@ Số liệu lấy từ evidence JSON của một lượt Kaggle T4, mỗi setup 
 
 ### Câu 1 — Kiến trúc và tham số
 
-Theo quy mô xấp xỉ trong hướng dẫn, LLM có 4.0B tham số, ViT 415M, projector/merger 109M (visual merger khoảng 27M và deepstack mergers khoảng 82M), tổng gần 4.44B. Đây là số xấp xỉ theo khối. E1 dùng LoRA trên 252 module LLM; E2 mở projector/merger FP32 cùng LoRA LLM; E3 bổ sung LoRA trên 96 module ViT, tổng 348 module LoRA mục tiêu.
+Theo quy mô xấp xỉ trong hướng dẫn, LLM có 4.0B tham số, ViT 415M, projector/merger khoảng 109M (visual merger khoảng 27M và deepstack mergers khoảng 82M), tổng gần 4.44B. Đây là ước lượng của tài liệu bài lab. Bộ đếm thực tế trong phiên này ghi 33.03M trainable cho E1 và 87.61M cho E2, tức projector được mở thêm 54.58M theo đúng module/tensor của checkpoint và phiên bản thư viện đã chạy; khi báo cáo tài nguyên, mình dùng số đếm runtime này. E1 dùng LoRA trên 252 module LLM; E2 mở projector/merger FP32 cùng LoRA LLM; E3 bổ sung LoRA trên 96 module ViT, tổng 348 module LoRA mục tiêu.
 
 ### Câu 2 — E0
 
