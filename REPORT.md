@@ -10,7 +10,7 @@ Người thực hiện: Hưng Đinh Bảo (Kaggle `hnginhbo`)
 | E0 | Zero-shot | 0 | — | — | 0.0873 | [0.0620, 0.1180] | 0.871 | 0.1560 | 0.0266 | 0.1867 |
 | E1 | LoRA LLM, r=16, 300 bước | 33,030,144 | 7.675 | 26.29 | 0.2734 | [0.2363, 0.3129] | 1.029 | 0.1446 | 0.1981 | 0.5433 |
 | E2 | LoRA LLM + projector FP32, r=16 | 87,609,344 | 6.556 | 30.18 | 0.0597 | [0.0394, 0.0851] | 1.363 | 0.0640 | 0.0278 | 0.1762 |
-| E3 | E2 + LoRA ViT, r=16 | 93,900,800 | 7.902 | 35.38 | 0.0042 | [0.0010, 0.0087] | 4.187 | 0.0000 | 0.0050 | 0.0000 |
+| E3 | E2 + LoRA ViT, r=16 | 93,900,800 | 7.902 | 35.38 | 0.0042 | [0.0010, 0.0087] | 4.186 | 0.0000 | 0.0050 | 0.0000 |
 | E4-r4 | LoRA LLM, rank 4 | 8,257,536 | 7.052 | 30.21 | 0.2436 | [0.2085, 0.2830] | 1.209 | 0.1872 | 0.1690 | 0.4800 |
 | E4-r64 | LoRA LLM, rank 64 | 132,120,576 | 8.151 | 30.84 | 0.2516 | [0.2164, 0.2930] | 1.232 | 0.1895 | 0.1739 | 0.5081 |
 
@@ -67,7 +67,7 @@ Box được ghi tiền tố GT hoặc E1 và tên lớp. Màu phân biệt lớ
 
 ### Câu 10 — E4
 
-E4 chỉ đổi rank LoRA so với E1 (r=16): r=4 và r=64, alpha=2r; các yếu tố còn lại giữ nguyên. Rank 4 đạt F1 0.2436 [0.2085, 0.2830], 7.052 GB, 30.21 phút với 8.26M tham số trainable. Rank 64 đạt 0.2516 [0.2164, 0.2930], 8.151 GB, 30.84 phút với 132.12M tham số. Hai CI chồng lấn nhiều và cả hai chứa phần lớn vùng CI của E1; khác biệt rank 4/64 chỉ 0.0080, nên test này chưa cho bằng chứng rank cao tốt hơn. Rank 4 tiết kiệm VRAM và tham số, còn E1 rank 16 vẫn đạt F1 cao nhất.
+E4 chỉ đổi rank LoRA so với E1 (r=16): r=4 và r=64, alpha=2r; các yếu tố còn lại giữ nguyên. Rank 4 đạt F1 0.2436 [0.2085, 0.2830], 7.052 GB, 30.21 phút với 8.26M tham số trainable. Rank 64 đạt 0.2516 [0.2164, 0.2930], 8.151 GB, 30.84 phút với 132.12M tham số. Hai CI chồng lấn đáng kể với E1 và với nhau; khác biệt rank 4/64 chỉ 0.0080, nên test này chưa cho bằng chứng rank cao tốt hơn. Rank 4 tiết kiệm VRAM và tham số, còn E1 rank 16 vẫn đạt F1 cao nhất.
 
 ## Nhìn lại
 
